@@ -11,5 +11,5 @@ $link = mysqli_connect($addr, $user, $pass);
 
 $name = getenv('OPENSHIFT_APP_NAME'); //base de dados padrão
 
-mysql_select_db($name);
+mysqli_select_db($name);
 ?>
