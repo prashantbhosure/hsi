@@ -1,5 +1,7 @@
 <?php
 $host = getenv('OPENSHIFT_MYSQL_DB_HOST');
+echo "$host";
+echo "hi";
 $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
 $user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 $pass = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
