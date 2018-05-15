@@ -8,28 +8,6 @@
   },
   "host" : "virtserver.swaggerhub.com",
   "basePath" : "/prashantteam/sapp/sapp",
-  "tags" : [ {
-    "name" : "s-preferences-controller",
-    "description" : "S Preferences Controller"
-  }, {
-    "name" : "s-static-controller",
-    "description" : "S Static Controller"
-  }, {
-    "name" : "s-user-sign-up-controller",
-    "description" : "S User Sign Up Controller"
-  }, {
-    "name" : "s-activity-controller",
-    "description" : "S Activity Controller"
-  }, {
-    "name" : "s-plan-controller",
-    "description" : "S Plan Controller"
-  }, {
-    "name" : "s-activity-tracking-controller",
-    "description" : "S Activity Tracking Controller"
-  }, {
-    "name" : "s-user-controller",
-    "description" : "S User Controller"
-  } ],
   "schemes" : [ "https" ],
   "paths" : {
     "UserSignupRequest" : {
