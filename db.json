@@ -1,0 +1,2322 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "sapp",
+    "version" : "sapp",
+    "title" : "sapp",
+    "termsOfService" : "Terms of service (TBD URL)"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/prashantteam/sapp/sapp",
+  "tags" : [ {
+    "name" : "s-preferences-controller",
+    "description" : "S Preferences Controller"
+  }, {
+    "name" : "s-static-controller",
+    "description" : "S Static Controller"
+  }, {
+    "name" : "s-user-sign-up-controller",
+    "description" : "S User Sign Up Controller"
+  }, {
+    "name" : "s-activity-controller",
+    "description" : "S Activity Controller"
+  }, {
+    "name" : "s-plan-controller",
+    "description" : "S Plan Controller"
+  }, {
+    "name" : "s-activity-tracking-controller",
+    "description" : "S Activity Tracking Controller"
+  }, {
+    "name" : "s-user-controller",
+    "description" : "S User Controller"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/sapp/activity/activityassignment" : {
+      "post" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "assignActivityToPlan",
+        "operationId" : "assignActivityToPlanUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "planActivityRequest",
+          "description" : "planActivityRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CreatePlanActivityRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PlanActivityDetail"
+              }
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activity/activitydetails/planid/{planId}" : {
+      "get" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "getActivities",
+        "operationId" : "getActivitiesUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "planId",
+          "in" : "path",
+          "description" : "planId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PlanActivityDetail"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activity/createexerciseset/" : {
+      "get" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "createExerciseSet",
+        "operationId" : "createExerciseSetUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "exerciseDetailRequest",
+          "description" : "exerciseDetailRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ExerciseDetailRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ExerciseResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activity/createmasteractivity" : {
+      "post" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "createMasterActivity",
+        "operationId" : "createMasterActivityUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "createActivityMasterRequest",
+          "description" : "createActivityMasterRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CreateActivityMasterRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ActivityMasterResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activity/getexerciseset" : {
+      "get" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "getExerciseSet",
+        "operationId" : "getExerciseSetUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ExerciseResponse"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activity/getexercisesetdetails/{exerciseSetId}" : {
+      "get" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "getExerciseDetails",
+        "operationId" : "getExerciseDetailsUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "exerciseSetId",
+          "in" : "path",
+          "description" : "exerciseSetId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ExerciseResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activity/getmasteractivities" : {
+      "get" : {
+        "tags" : [ "s-activity-controller" ],
+        "summary" : "getMasterActivities",
+        "operationId" : "getMasterActivitiesUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ActivityMasterResponse"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activitytracking/getactivitysummary/planid/{planId}/userid/{userId}" : {
+      "get" : {
+        "tags" : [ "s-activity-tracking-controller" ],
+        "summary" : "getUserActivitySummary",
+        "operationId" : "getUserActivitySummaryUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "planId",
+          "in" : "path",
+          "description" : "planId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "userId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserActivitySummaryResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/activitytracking/recordactivity" : {
+      "post" : {
+        "tags" : [ "s-activity-tracking-controller" ],
+        "summary" : "recordActivity",
+        "operationId" : "recordActivityUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "addUAReadingReq",
+          "description" : "addUAReadingReq",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RecordActivityRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserActivitySummaryResponse"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/activitymasterstatus" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "activityMasterStatus",
+        "operationId" : "activityMasterStatusUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/planCategory" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getPlanCategory",
+        "operationId" : "getPlanCategoryUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/planDurationUnit" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getPlanDurationUnit",
+        "operationId" : "getPlanDurationUnitUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/planFrequency" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getPlanFrequency",
+        "operationId" : "getPlanFrequencyUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/planLevel" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getPlanLevel",
+        "operationId" : "getPlanLevelUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/planSession" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getPlanSession",
+        "operationId" : "getPlanSessionUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/status" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getStatus",
+        "operationId" : "getStatusUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/master/userRole" : {
+      "get" : {
+        "tags" : [ "s-static-controller" ],
+        "summary" : "getUserRole",
+        "operationId" : "getUserRoleUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AppRoleResponse"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/plan/assign" : {
+      "post" : {
+        "tags" : [ "s-plan-controller" ],
+        "summary" : "assingPlanToUser",
+        "operationId" : "assingPlanToUserUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "aPlanRequest",
+          "description" : "aPlanRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AssignPlanRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserPlanAssignmentResponse"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/plan/create" : {
+      "post" : {
+        "tags" : [ "s-plan-controller" ],
+        "summary" : "addPlans",
+        "operationId" : "addPlansUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cplanRequest",
+          "description" : "cplanRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CreatePlanRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/PlanDetail"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/plan/details/{planId}" : {
+      "get" : {
+        "tags" : [ "s-plan-controller" ],
+        "summary" : "getPlanDetails",
+        "operationId" : "getPlanDetailsUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "planId",
+          "in" : "path",
+          "description" : "planId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/PlanDetail"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/plan/getPlans" : {
+      "get" : {
+        "tags" : [ "s-plan-controller" ],
+        "summary" : "getPlans",
+        "operationId" : "getPlansUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PlanDetail"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/plan/update/{planId}" : {
+      "post" : {
+        "tags" : [ "s-plan-controller" ],
+        "summary" : "updatePlan",
+        "operationId" : "updatePlanUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "planId",
+          "in" : "path",
+          "description" : "planId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "in" : "body",
+          "name" : "cplanRequest",
+          "description" : "cplanRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CreatePlanRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/PlanDetail"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/plan/user/{userId}" : {
+      "get" : {
+        "tags" : [ "s-plan-controller" ],
+        "summary" : "getUserAssignedPlans",
+        "operationId" : "getUserAssignedPlansUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "userId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/UserPlansResponse"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/preferences/getPreferences" : {
+      "get" : {
+        "tags" : [ "s-preferences-controller" ],
+        "summary" : "getUserPreference",
+        "operationId" : "getUserPreferenceUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserPreferencesResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/preferences/updatePreferences" : {
+      "post" : {
+        "tags" : [ "s-preferences-controller" ],
+        "summary" : "updatePreferences",
+        "operationId" : "updatePreferencesUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "userPreferencesRequest",
+          "description" : "userPreferencesRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserPreferencesRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserPreferencesResponse"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/signup/passwordTokenVerification" : {
+      "get" : {
+        "tags" : [ "s-user-sign-up-controller" ],
+        "summary" : "resetPasswordVerification",
+        "operationId" : "resetPasswordVerificationUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "query",
+          "description" : "token",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ApplicationResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/signup/registrationConfirm" : {
+      "get" : {
+        "tags" : [ "s-user-sign-up-controller" ],
+        "summary" : "registrationConfirmation",
+        "operationId" : "registrationConfirmationUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "query",
+          "description" : "token",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ApplicationResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/signup/resetPassword" : {
+      "post" : {
+        "tags" : [ "s-user-sign-up-controller" ],
+        "summary" : "resetPassword",
+        "operationId" : "resetPasswordUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "email",
+          "in" : "query",
+          "description" : "email",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ApplicationResponse"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/signup/user" : {
+      "post" : {
+        "tags" : [ "s-user-sign-up-controller" ],
+        "summary" : "userRegisteration",
+        "operationId" : "userRegisterationUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "userSignUp",
+          "description" : "userSignUp",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserSignupRequest"
+          }
+        }, {
+          "name" : "g-recaptcha-response",
+          "in" : "query",
+          "description" : "g-recaptcha-response",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ApplicationResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/user/create" : {
+      "post" : {
+        "tags" : [ "s-user-controller" ],
+        "summary" : "createUser",
+        "operationId" : "createUserUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "userSignUp",
+          "description" : "userSignUp",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserSignupRequest"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ApplicationResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/user/details/{username}" : {
+      "get" : {
+        "tags" : [ "s-user-controller" ],
+        "summary" : "getUserDetails",
+        "operationId" : "getUserDetailsUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "path",
+          "description" : "username",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserDetailsResponse"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/user/search/{keyword}" : {
+      "get" : {
+        "tags" : [ "s-user-controller" ],
+        "summary" : "searchUser",
+        "operationId" : "searchUserUsingGET",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "keyword",
+          "in" : "path",
+          "description" : "keyword",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/UserDetailsResponse"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/sapp/user/update" : {
+      "post" : {
+        "tags" : [ "s-user-controller" ],
+        "summary" : "updateUserDetails",
+        "operationId" : "updateUserDetailsUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "userDetails",
+          "description" : "userDetails",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserDetailsRequest"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "header",
+          "description" : "userId",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AcademyDetailsRequest" : {
+      "type" : "object",
+      "properties" : {
+        "academyName" : {
+          "type" : "string"
+        },
+        "academyOwner" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "phoneNo" : {
+          "type" : "string"
+        },
+        "pincode" : {
+          "type" : "string"
+        },
+        "registered" : {
+          "type" : "string"
+        },
+        "sports" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "pincode" : "pincode",
+        "academyName" : "academyName",
+        "address" : "address",
+        "sports" : "sports",
+        "city" : "city",
+        "registered" : "registered",
+        "state" : "state",
+        "academyOwner" : "academyOwner",
+        "phoneNo" : "phoneNo"
+      }
+    },
+    "AcademyDetailsResponse" : {
+      "type" : "object",
+      "properties" : {
+        "academyName" : {
+          "type" : "string"
+        },
+        "academyOwner" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "phoneNo" : {
+          "type" : "integer"
+        },
+        "pincode" : {
+          "type" : "integer"
+        },
+        "registered" : {
+          "type" : "string"
+        },
+        "sports" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ActivityMasterResponse" : {
+      "type" : "object",
+      "properties" : {
+        "activityId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "activityName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "AppRoleResponse" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "roleName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ApplicationResponse" : {
+      "type" : "object",
+      "properties" : {
+        "responseCode" : {
+          "type" : "string"
+        },
+        "responseMessage" : {
+          "type" : "string"
+        }
+      }
+    },
+    "AssignPlanRequest" : {
+      "type" : "object",
+      "properties" : {
+        "planEndDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "planId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "planStartDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "session" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "userIds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "example" : {
+        "session" : "session",
+        "userIds" : [ 6, 6 ],
+        "planId" : 0,
+        "planStartDate" : "2000-01-23T04:56:07.000+00:00",
+        "planEndDate" : "2000-01-23T04:56:07.000+00:00",
+        "status" : "status"
+      }
+    },
+    "CreateActivityMasterRequest" : {
+      "type" : "object",
+      "properties" : {
+        "activityName" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "activityName" : "activityName"
+      }
+    },
+    "CreatePlanActivityRequest" : {
+      "type" : "object",
+      "properties" : {
+        "planActivityDetails" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PlanActivityDetailsRequest"
+          }
+        },
+        "planId" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      },
+      "example" : {
+        "planActivityDetails" : [ {
+          "activityId" : 0,
+          "uOM" : "uOM",
+          "planActivityId" : 5,
+          "stretchTarget" : 5,
+          "exerciseSetId" : 1,
+          "coachId" : 6,
+          "frequency" : "frequency",
+          "target" : 2
+        }, {
+          "activityId" : 0,
+          "uOM" : "uOM",
+          "planActivityId" : 5,
+          "stretchTarget" : 5,
+          "exerciseSetId" : 1,
+          "coachId" : 6,
+          "frequency" : "frequency",
+          "target" : 2
+        } ],
+        "planId" : 7
+      }
+    },
+    "CreatePlanRequest" : {
+      "type" : "object",
+      "properties" : {
+        "frequency" : {
+          "type" : "string"
+        },
+        "planCategory" : {
+          "type" : "string"
+        },
+        "planDuration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "planDurationUnit" : {
+          "type" : "string"
+        },
+        "planEndDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "planLevel" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "planName" : {
+          "type" : "string"
+        },
+        "planStartDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "status" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "planDuration" : 0,
+        "planLevel" : 6,
+        "planDurationUnit" : "planDurationUnit",
+        "planName" : "planName",
+        "planCategory" : "planCategory",
+        "planStartDate" : "2000-01-23T04:56:07.000+00:00",
+        "planEndDate" : "2000-01-23T04:56:07.000+00:00",
+        "frequency" : "frequency",
+        "status" : "status"
+      }
+    },
+    "ExerciseDetailRequest" : {
+      "type" : "object",
+      "properties" : {
+        "remark" : {
+          "type" : "string"
+        },
+        "setDetails" : {
+          "type" : "string"
+        },
+        "setId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "setName" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "setName" : "setName",
+        "setDetails" : "setDetails",
+        "setId" : 0,
+        "remark" : "remark"
+      }
+    },
+    "ExerciseResponse" : {
+      "type" : "object",
+      "properties" : {
+        "coachId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "coachName" : {
+          "type" : "string"
+        },
+        "exerciseSetDescription" : {
+          "type" : "string"
+        },
+        "exerciseSetId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "exerciseSetName" : {
+          "type" : "string"
+        },
+        "exerciseSetRemark" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PlanActivityDetail" : {
+      "type" : "object",
+      "properties" : {
+        "activityId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "activityName" : {
+          "type" : "string"
+        },
+        "coachId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "frequency" : {
+          "type" : "string"
+        },
+        "plan" : {
+          "$ref" : "#/definitions/PlanDetail"
+        },
+        "planActivityId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "setId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "stretchtarget" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "target" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "uoM" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PlanActivityDetailsRequest" : {
+      "type" : "object",
+      "properties" : {
+        "activityId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "coachId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "exerciseSetId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "frequency" : {
+          "type" : "string"
+        },
+        "planActivityId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "stretchTarget" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "target" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "uOM" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "activityId" : 0,
+        "uOM" : "uOM",
+        "planActivityId" : 5,
+        "stretchTarget" : 5,
+        "exerciseSetId" : 1,
+        "coachId" : 6,
+        "frequency" : "frequency",
+        "target" : 2
+      }
+    },
+    "PlanDetail" : {
+      "type" : "object",
+      "properties" : {
+        "coachId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "coachName" : {
+          "type" : "string"
+        },
+        "planCategory" : {
+          "type" : "string"
+        },
+        "planDuration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "planDurationUnit" : {
+          "type" : "string"
+        },
+        "planEndDate" : {
+          "type" : "string"
+        },
+        "planId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "planLevel" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "planName" : {
+          "type" : "string"
+        },
+        "planStartDate" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RecordActivityRequest" : {
+      "type" : "object",
+      "properties" : {
+        "activityId" : {
+          "type" : "string"
+        },
+        "activityReading" : {
+          "type" : "string"
+        },
+        "activitydate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "userId" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "activityId" : "activityId",
+        "activityReading" : "activityReading",
+        "activitydate" : "2000-01-23T04:56:07.000+00:00",
+        "userId" : "userId"
+      }
+    },
+    "UserActivitySummary" : {
+      "type" : "object",
+      "properties" : {
+        "activitydate" : {
+          "type" : "string"
+        },
+        "activitydesc" : {
+          "type" : "string"
+        },
+        "activityname" : {
+          "type" : "string"
+        },
+        "frequency" : {
+          "type" : "string"
+        },
+        "legend" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "plan" : {
+          "$ref" : "#/definitions/PlanDetail"
+        },
+        "planActivityId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "stretchtarget" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "target" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "totalactualreading" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "uoM" : {
+          "type" : "string"
+        }
+      }
+    },
+    "UserActivitySummaryResponse" : {
+      "type" : "object",
+      "properties" : {
+        "useractivitySummarylist" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/UserActivitySummary"
+          }
+        }
+      }
+    },
+    "UserDetailsRequest" : {
+      "type" : "object",
+      "properties" : {
+        "academyDetails" : {
+          "$ref" : "#/definitions/AcademyDetailsRequest"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "dOB" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "fGames" : {
+          "type" : "string"
+        },
+        "fName" : {
+          "type" : "string"
+        },
+        "geoId" : {
+          "type" : "string"
+        },
+        "lName" : {
+          "type" : "string"
+        },
+        "mName" : {
+          "type" : "string"
+        },
+        "nationality" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "phoneNo" : {
+          "type" : "string"
+        },
+        "pincode" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "userId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "userRoleName" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "username" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "academyDetails" : {
+          "pincode" : "pincode",
+          "academyName" : "academyName",
+          "address" : "address",
+          "sports" : "sports",
+          "city" : "city",
+          "registered" : "registered",
+          "state" : "state",
+          "academyOwner" : "academyOwner",
+          "phoneNo" : "phoneNo"
+        },
+        "lName" : "lName",
+        "pincode" : "pincode",
+        "address" : "address",
+        "city" : "city",
+        "userId" : 0,
+        "phoneNo" : "phoneNo",
+        "password" : "password",
+        "fName" : "fName",
+        "nationality" : "nationality",
+        "dOB" : "2000-01-23T04:56:07.000+00:00",
+        "geoId" : "geoId",
+        "state" : "state",
+        "mName" : "mName",
+        "fGames" : "fGames",
+        "userRoleName" : [ "userRoleName", "userRoleName" ],
+        "username" : "username"
+      }
+    },
+    "UserDetailsResponse" : {
+      "type" : "object",
+      "properties" : {
+        "academyDetails" : {
+          "$ref" : "#/definitions/AcademyDetailsResponse"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "dOB" : {
+          "type" : "string"
+        },
+        "eMailId" : {
+          "type" : "string"
+        },
+        "fGames" : {
+          "type" : "string"
+        },
+        "fName" : {
+          "type" : "string"
+        },
+        "geoId" : {
+          "type" : "string"
+        },
+        "lName" : {
+          "type" : "string"
+        },
+        "mName" : {
+          "type" : "string"
+        },
+        "nationality" : {
+          "type" : "string"
+        },
+        "phoneNo" : {
+          "type" : "integer"
+        },
+        "pincode" : {
+          "type" : "integer"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "userRoles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "username" : {
+          "type" : "string"
+        }
+      }
+    },
+    "UserPlanAssignmentResponse" : {
+      "type" : "object",
+      "properties" : {
+        "plan" : {
+          "$ref" : "#/definitions/PlanDetail"
+        },
+        "users" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/UserDetailsResponse"
+          }
+        }
+      }
+    },
+    "UserPlansResponse" : {
+      "type" : "object",
+      "properties" : {
+        "coachId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "coachName" : {
+          "type" : "string"
+        },
+        "planCategory" : {
+          "type" : "string"
+        },
+        "planDuration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "planDurationUnit" : {
+          "type" : "string"
+        },
+        "planEndDate" : {
+          "type" : "string"
+        },
+        "planId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "planLevel" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "planName" : {
+          "type" : "string"
+        },
+        "planStartDate" : {
+          "type" : "string"
+        },
+        "session" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "coachName" : "coachName",
+        "planDuration" : 6,
+        "planLevel" : 5,
+        "planDurationUnit" : "planDurationUnit",
+        "session" : "session",
+        "planName" : "planName",
+        "planId" : 1,
+        "planCategory" : "planCategory",
+        "planStartDate" : "planStartDate",
+        "coachId" : 0,
+        "planEndDate" : "planEndDate",
+        "status" : "status"
+      }
+    },
+    "UserPreferencesRequest" : {
+      "type" : "object",
+      "properties" : {
+        "activityTrackingNotification" : {
+          "type" : "string"
+        },
+        "activityTrackingNotificationFrequency" : {
+          "type" : "string"
+        },
+        "emailNotification" : {
+          "type" : "string"
+        },
+        "promotionalNotification" : {
+          "type" : "string"
+        },
+        "promotionalNotificationFrequency" : {
+          "type" : "string"
+        },
+        "smsNotification" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "activityTrackingNotificationFrequency" : "activityTrackingNotificationFrequency",
+        "emailNotification" : "emailNotification",
+        "smsNotification" : "smsNotification",
+        "promotionalNotification" : "promotionalNotification",
+        "promotionalNotificationFrequency" : "promotionalNotificationFrequency",
+        "activityTrackingNotification" : "activityTrackingNotification"
+      }
+    },
+    "UserPreferencesResponse" : {
+      "type" : "object",
+      "properties" : {
+        "activityTrackingNotification" : {
+          "type" : "string"
+        },
+        "activityTrackingNotificationFrequency" : {
+          "type" : "string"
+        },
+        "emailNotification" : {
+          "type" : "string"
+        },
+        "promotionalNotification" : {
+          "type" : "string"
+        },
+        "promotionalNotificationFrequency" : {
+          "type" : "string"
+        },
+        "smsNotification" : {
+          "type" : "string"
+        },
+        "userId" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "UserSignupRequest" : {
+      "type" : "object",
+      "properties" : {
+        "eMailId" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "password" : "password",
+        "eMailId" : "eMailId"
+      }
+    }
+  }
+}
