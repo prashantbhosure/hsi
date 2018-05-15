@@ -32,49 +32,6 @@
   } ],
   "schemes" : [ "https" ],
   "paths" : {
-    "/sapp/plan/user/{userId}" : {
-      "get" : {
-        "tags" : [ "s-plan-controller" ],
-        "summary" : "getUserAssignedPlans",
-        "operationId" : "getUserAssignedPlansUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "userId",
-          "in" : "path",
-          "description" : "userId",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        }, {
-          "name" : "Authorization",
-          "in" : "header",
-          "description" : "Authorization",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/UserPlansResponse"
-              }
-            }
-          },
-          "401" : {
-            "description" : "Unauthorized"
-          },
-          "403" : {
-            "description" : "Forbidden"
-          },
-          "404" : {
-            "description" : "Not Found"
-          }
-        }
-      }
-    },
     "UserSignupRequest" : {
       "type" : "object",
       "properties" : {
